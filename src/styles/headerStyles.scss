@@ -1,0 +1,97 @@
+@import "./reset.scss";
+
+#topBackground {
+  margin: 0;
+  height: 40vh;
+  background-color: #000;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -32px;
+    height: 70px;
+    width: 100%;
+    background: url(../assets/topMoz.svg) no-repeat;
+    background-position: 85%;
+  }
+  .mozLogo {
+    position: absolute;
+    height: 50px;
+    top: 50px;
+    left: 5vw;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 57px;
+    right: 5vw;
+    width: 40%;
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      li {
+        text-transform: uppercase;
+        color: white;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 0;
+          height: 2px;
+          background: white;
+          transition: width 0.5s;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  #topBackground {
+    &::before {
+      content: "";
+      top: -20px;
+      height: 50px;
+    }
+    .mozLogo {
+      height: 40px;
+      left: 4vw;
+      top: 25px;
+    }
+
+    .navigation {
+      ul {
+        li {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+  #topBackground {
+    .mozLogo {
+      left: 2.5vw;
+      top: 40px;
+      height: 45px;
+    }
+    .navigation {
+      width: 65%;
+      right: 2.5vw;
+      top: 47px;
+    }
+  }
+}
+@media (min-width: 769px) and (max-width: 992px) {
+  #topBackground {
+    .navigation {
+      width: 60%;
+    }
+  }
+}
